@@ -5,7 +5,7 @@
 ### Dockerビルド
 
 ```bash
-git clone リポジトリURL
+git clone https://github.com/Asaky250816/contact-test.git
 cd contact-test
 docker compose up -d --build
 ```
@@ -18,6 +18,7 @@ docker compose exec php bash
 composer install
 
 cp .env.example .env
+exit
 
 # .envを編集
 DB_CONNECTION=mysql
