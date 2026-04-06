@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -14,7 +15,7 @@ class ContactController extends Controller
         return view('index', compact('categories'));
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
         $contact = $request->only([
             'first_name',
@@ -33,6 +34,8 @@ class ContactController extends Controller
         $contact['tel'] = $contact['tel1'] . $contact['tel2'] . $contact['tel3'];
 
         $category = Category::find($contact['category_id']);
+
+        $request['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
 
         return view('confirm', compact('contact', 'category'));
     }

@@ -65,6 +65,17 @@
     </form>
 
     <form action="/" method="get">
+        <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
+        <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
+        <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
+        <input type="hidden" name="email" value="{{ $contact['email'] }}">
+        <input type="hidden" name="tel1" value="{{ $contact['tel1'] }}">
+        <input type="hidden" name="tel2" value="{{ $contact['tel2'] }}">
+        <input type="hidden" name="tel3" value="{{ $contact['tel3'] }}">
+        <input type="hidden" name="address" value="{{ $contact['address'] }}">
+        <input type="hidden" name="building" value="{{ $contact['building'] }}">
+        <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
+        <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
         <button type="submit">修正</button>
     </form>
 </body>
