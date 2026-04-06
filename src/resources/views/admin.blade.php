@@ -17,6 +17,15 @@
             <option value="3" {{ request('gender') == '3' ? 'selected' : '' }}>その他</option>
         </select>
 
+        <select name="category_id">
+        <option value="">カテゴリ</option>
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                {{ $category->content }}
+            </option>
+        @endforeach
+        </select>
+
         <button type="submit">検索</button>
     </form>
 
@@ -26,6 +35,7 @@
             <th>性別</th>
             <th>メールアドレス</th>
             <th>お問い合わせの種類</th>
+            <th>削除</th>
         </tr>
 
         @foreach ($contacts as $contact)
@@ -42,6 +52,13 @@
                 </td>
                 <td>{{ $contact->email }}</td>
                 <td>{{ $contact->category->content ?? '' }}</td>
+                <td>
+                    <form action="/delete" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $contact->id }}">
+                        <button type="submit">削除</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>

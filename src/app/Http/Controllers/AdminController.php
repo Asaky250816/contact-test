@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Category;
 
 class AdminController extends Controller
 {
@@ -25,8 +26,23 @@ class AdminController extends Controller
             $query->where('gender', $request->gender);
         }
 
-        $contacts = $query->latest()->get();
+        // カテゴリ検索
+        if ($request->category_id) {
+            $query->where('category_id', $request->category_id);
+        }
 
-        return view('admin', compact('contacts'));
+        $contacts = $query->latest()->get();
+        $categories = Category::all();
+        return view('admin', compact('contacts', 'categories'));
+
+        if ($request->category_id) {
+            $query->where('category_id', $request->category_id);
+            }
+    }
+
+    public function destroy(Request $request)
+    {
+        Contact::find($request->id)->delete();
+        return redirect('/admin');
     }
 }
