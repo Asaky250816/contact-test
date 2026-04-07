@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <h1>Admin</h1>
+
+    <form method="POST" action="/logout" style="margin-bottom: 20px;">
+        @csrf
+        <button type="submit">logout</button>
+    </form>
 
     <form method="get" action="/admin">
         <input type="text" name="keyword" placeholder="名前やメールで検索" value="{{ request('keyword') }}">
@@ -62,5 +68,8 @@
             </tr>
         @endforeach
     </table>
+
+        {{ $contacts->links('pagination::bootstrap-4') }}
+
 </body>
 </html>
