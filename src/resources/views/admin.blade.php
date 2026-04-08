@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+    tbody tr:hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+</style>
+
 </head>
 <body>
     <h1>Admin</h1>
@@ -24,15 +32,18 @@
         </select>
 
         <select name="category_id">
-        <option value="">カテゴリ</option>
-        @foreach ($categories as $category)
-            <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
-                {{ $category->content }}
-            </option>
-        @endforeach
+            <option value="">カテゴリ</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                    {{ $category->content }}
+                </option>
+            @endforeach
         </select>
 
+        <input type="date" name="date" value="{{ request('date') }}">
+
         <button type="submit">検索</button>
+        <a href="/admin">リセット</a>
     </form>
 
     <table border="1">

@@ -5,7 +5,12 @@
     <title>Register</title>
 </head>
 <body>
-    <h1>Register</h1>
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+        <h1>FashionablyLate</h1>
+        <a href="/login">login</a>
+    </header>
+
+    <h2>Register</h2>
 
     <form method="POST" action="/register" novalidate>
         @csrf
