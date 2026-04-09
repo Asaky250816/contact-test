@@ -46,6 +46,14 @@
         <a href="/admin">リセット</a>
     </form>
 
+    <form method="get" action="/export" style="display:inline-block; margin-bottom:20px;">
+        <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+        <input type="hidden" name="gender" value="{{ request('gender') }}">
+        <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+        <input type="hidden" name="date" value="{{ request('date') }}">
+        <button type="submit">エクスポート</button>
+    </form>
+
     <table border="1">
         <tr>
             <th>お名前</th>
