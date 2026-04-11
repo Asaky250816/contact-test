@@ -1,5 +1,10 @@
 # お問い合わせフォームアプリ
 
+お問い合わせ内容の入力、確認、送信ができるフォームアプリです。  
+管理画面では、登録されたお問い合わせの一覧表示、検索、詳細表示、削除、CSVエクスポートができます。
+
+---
+
 ## 環境構築
 
 ### Dockerビルド
@@ -12,13 +17,10 @@ docker compose up -d --build
 
 ### Laravel環境構築
 
-```bash
+````bash
 docker compose exec php bash
-
 composer install
-
 cp .env.example .env
-exit
 
 # .envを編集
 DB_CONNECTION=mysql
@@ -28,9 +30,12 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
+# 設定後、以下のコマンドを実行してください。
+```bash
 php artisan key:generate
 php artisan migrate
-```
+php artisan db:seed
+````
 
 ---
 
