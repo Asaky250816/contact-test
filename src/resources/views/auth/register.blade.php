@@ -22,7 +22,7 @@
             <h1 class="auth-title">Register</h1>
 
             <div class="auth-card">
-                <form action="/register" method="post" class="auth-form">
+                <form action="/register" method="post" class="auth-form" novalidate>
                     @csrf
 
                     <div class="auth-row">

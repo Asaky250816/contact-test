@@ -29,14 +29,14 @@ textarea {
 
 .container {
     width: 92%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .page-title {
     text-align: center;
-    margin: 24px 0 20px;
-    font-size: 30px;
+    margin: 24px 0 18px;
+    font-size: 24px;
     font-weight: normal;
     color: #8b7969;
     font-family: serif;
@@ -50,7 +50,7 @@ textarea {
 
 .header__inner {
     width: 92%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 18px 0;
     display: flex;
@@ -60,7 +60,7 @@ textarea {
 }
 
 .header__logo {
-    font-size: 34px;
+    font-size: 30px;
     color: #8b7969;
     font-family: serif;
     line-height: 1.2;

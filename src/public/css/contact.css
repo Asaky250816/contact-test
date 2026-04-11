@@ -1,12 +1,12 @@
 .contact-wrapper {
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 20px 0 60px;
 }
 
 .contact-title {
     text-align: center;
-    font-size: 26px;
+    font-size: 22px;
     font-family: serif;
     color: #8b7969;
     margin-bottom: 30px;
@@ -19,9 +19,19 @@
 
 .form-row {
     display: grid;
-    grid-template-columns: 300300px 1fr;
+    grid-template-columns: 200px 1fr;
+    column-gap: 34px;
     align-items: start;
     margin-bottom: 22px;
+}
+
+.form-select {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-textarea {
+    height: 90px;
 }
 
 .form-row--textarea {
@@ -30,7 +40,7 @@
 
 .form-label {
     color: #8b7969;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 42px;
 }
 
@@ -50,12 +60,8 @@
     border: none;
     background: #f4f4f4;
     color: #8b7969;
-    font-size: 13px;
+    font-size: 12px;
     box-sizing: border-box;
-}
-
-.form-select {
-    width: 360px;
 }
 
 .form-input,
@@ -72,7 +78,7 @@
 
 .form-name {
     display: flex;
-    gap: 28px;
+    gap: 20px;
 }
 
 .name-box {
@@ -82,7 +88,7 @@
 .form-radio {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 24px;
     height: 42px;
     color: #8b7969;
     font-size: 15px;
@@ -128,7 +134,7 @@
     margin-top: 6px;
     margin-bottom: 0;
     color: #ff4b4b;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.4;
 }
 

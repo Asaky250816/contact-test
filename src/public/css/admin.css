@@ -1,59 +1,32 @@
-/* =========================
-    全体レイアウト
-========================= */
 .admin-inner {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* =========================
-    タイトル
-========================= */
-.page-title {
-    text-align: center;
-    margin: 24px 0 20px;
-    font-size: 30px;
-    font-weight: normal;
-    color: #8b7969;
-    font-family: serif;
-    line-height: 1.2;
-}
-
-/* =========================
-    検索フォーム
-========================= */
 .admin-search {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 20px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: nowrap;
 }
 
-/* 入力共通 */
 .admin-search__input,
 .admin-search__select,
 .admin-search__date {
-    height: 46px;
-    padding: 0 16px;
+    padding: 0 14px;
     border: 1px solid #e3ded9;
     background: #fff;
     color: #8b7969;
+    height: 42px;
+    box-sizing: border-box;
     font-size: 14px;
-}
-
-.admin-search__button,
-.admin-search__reset {
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
+    outline: none;
 }
 
 .admin-search__input {
-    width: 300px;
+    width: 260px;
 }
 
 .admin-search__select {
@@ -64,90 +37,107 @@
     width: 160px;
 }
 
-/* ボタン */
 .admin-search__button {
-    height: 46px;
-    padding: 0 26px;
     background: #8b7969;
     color: #fff;
     border: none;
+    padding: 0 20px;
+    height: 42px;
     font-size: 14px;
+    white-space: nowrap;
 }
 
 .admin-search__reset {
-    height: 46px;
-    padding: 0 26px;
     background: #d9c6b5;
     color: #fff;
     border: none;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    box-sizing: border-box;
     font-size: 14px;
+    white-space: nowrap;
 }
 
-/* =========================
-    ツールバー（エクスポート＋ページネーション）
-========================= */
 .admin-toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 25px 0 30px;
+    margin: 0 0 20px;
 }
 
-/* エクスポート */
+.admin-export-form,
+.admin-delete-form,
+.modal-delete-form,
+.header__logout-form {
+    margin: 0;
+}
+
 .admin-export {
-    padding: 10px 18px;
     background: #f4ece5;
-    border: 1px solid #d9c6b5;
     color: #8b7969;
+    border: 1px solid #d9c6b5;
+    padding: 10px 18px;
     font-size: 14px;
 }
 
-/* =========================
-    ページネーション
-========================= */
 .pagination-wrapper {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    margin-top: 0;
 }
 
 .pagination {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0;
-    padding-left: 0;
     margin: 0;
+    padding-left: 0;
+    list-style: none;
+    gap: 0;
+}
+
+.pagination .page-item {
     list-style: none;
 }
 
-/* 各ボタン */
 .pagination .page-link {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
-    border: 1px solid #d9c6b5;
-    color: #8b7969;
-    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 6px;
+    font-size: 11px;
+    line-height: 1;
+    color: #8b7969;
+    background: #fff;
+    border: 1px solid #d9c6b5;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-/* hover */
 .pagination .page-link:hover {
-    background: #8b7969;
+    background-color: #8b7969;
+    border-color: #8b7969;
     color: #fff;
 }
 
-/* active */
 .pagination .active .page-link {
-    background: #8b7969;
+    background-color: #8b7969;
+    border-color: #8b7969;
     color: #fff;
 }
 
-/* =========================
-    テーブル
-========================= */
+.pagination .page-item.disabled .page-link {
+    color: #d9c6b5;
+    background: #fff;
+    border-color: #d9c6b5;
+}
+
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -157,14 +147,16 @@
 .admin-table th {
     background: #8b7969;
     color: #fff;
-    padding: 18px 16px;
-    font-size: 14px;
     font-weight: normal;
+    padding: 16px 14px;
+    text-align: left;
+    font-size: 14px;
 }
 
 .admin-table td {
-    padding: 20px 16px;
+    padding: 18px 14px;
     border-bottom: 1px solid #e0dfde;
+    color: #8b7969;
     font-size: 14px;
 }
 
@@ -172,28 +164,23 @@
     background-color: #f5f5f5;
 }
 
-/* =========================
-    ボタン（詳細・削除）
-========================= */
 .admin-detail-button {
-    padding: 10px 16px;
     border: 1px solid #d9c6b5;
     background: #f7f1eb;
     color: #d9a97b;
-    font-size: 13px;
+    padding: 9px 14px;
+    font-size: 12px;
 }
 
 .admin-delete-button {
-    padding: 10px 16px;
     border: 1px solid #d9c6b5;
     background: #fff;
     color: #d97b7b;
-    font-size: 13px;
+    padding: 9px 14px;
+    font-size: 12px;
 }
 
-/* =========================
-    モーダル
-========================= */
+/* modal */
 .modal {
     display: none;
     position: fixed;
@@ -207,68 +194,74 @@
 }
 
 .modal-content {
-    width: 600px;
-    margin: 80px auto;
-    padding: 50px 60px;
-    background: #fff;
-    border-radius: 6px;
     position: relative;
+    width: 600px;
+    max-width: 90%;
+    margin: 40px auto;
+    background: #fff;
+    border: 1px solid #8b7969;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    padding: 40px 50px;
+    box-sizing: border-box;
 }
 
-/* 閉じるボタン */
 .modal-close {
     position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 34px;
-    height: 34px;
+    top: 20px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
     border: 1px solid #8b7969;
     border-radius: 50%;
     background: #fff;
+    color: #8b7969;
     font-size: 16px;
+    line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    padding: 0;
 }
 
-/* 中身 */
 .modal-body {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 18px;
 }
 
-/* 行 */
 .modal-row {
     display: grid;
-    grid-template-columns: 160px 1fr;
-    column-gap: 40px;
+    grid-template-columns: 140px 1fr;
+    column-gap: 28px;
+    align-items: start;
 }
 
-/* ラベル */
 .modal-label {
-    font-weight: bold;
-    font-size: 16px;
-}
-
-/* 値 */
-.modal-value {
+    color: #8b7969;
+    font-weight: 700;
     font-size: 16px;
     line-height: 1.8;
 }
 
-/* フッター */
+.modal-value {
+    color: #8b7969;
+    font-size: 16px;
+    line-height: 1.9;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
 .modal-footer {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 32px;
 }
 
-/* 削除ボタン */
 .modal-delete-button {
     background: #ba370d;
     color: #fff;
-    padding: 12px 28px;
     border: none;
+    padding: 10px 24px;
     font-size: 14px;
 }
