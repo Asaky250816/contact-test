@@ -1,0 +1,90 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background-color: #f8f8f8;
+    color: #8b7969;
+}
+
+a {
+    text-decoration: none;
+    color: #8b7969;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+input,
+select,
+button,
+textarea {
+    font-family: inherit;
+}
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    margin: 24px 0 20px;
+    font-size: 30px;
+    font-weight: normal;
+    color: #8b7969;
+    font-family: serif;
+    line-height: 1.2;
+}
+
+.header {
+    background: #fff;
+    border-bottom: 1px solid #e0dfde;
+}
+
+.header__inner {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header__logo {
+    font-size: 34px;
+    color: #8b7969;
+    font-family: serif;
+    line-height: 1.2;
+}
+
+.header__nav {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header__link {
+    border: 1px solid #d9c6b5;
+    background: #f7f1eb;
+    padding: 8px 18px;
+    color: #d9a97b;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.header__link:hover {
+    opacity: 0.9;
+}

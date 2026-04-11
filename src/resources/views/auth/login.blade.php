@@ -3,33 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 <body>
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
-        <h1>FashionablyLate</h1>
-        <a href="/register">register</a>
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">FashionablyLate</div>
+            <div class="auth-link-nav">
+                <a href="/register" class="auth-link-button">register</a>
+            </div>
+        </div>
     </header>
 
-    <h2>Login</h2>
+    <div class="auth-page-bg">
+        <div class="auth-wrapper">
+            <h1 class="auth-title">Login</h1>
 
-    <form method="POST" action="/login" novalidate>
-        @csrf
+            <div class="auth-card">
+                <form action="/login" method="post" class="auth-form" novalidate>
+                    @csrf
 
-        <div>
-            <input type="email" name="email" placeholder="メールアドレス" value="{{ old('email') }}">
-            @error('email')
-                <p style="color:red;">{{ $message }}</p>
-            @enderror
+                    <div class="auth-row">
+                        <label class="auth-label">メールアドレス</label>
+                        <input type="email" name="email" value="{{ old('email') }}" class="auth-input" placeholder="例: test@example.com">
+                        @error('email')
+                            <p class="auth-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="auth-row">
+                        <label class="auth-label">パスワード</label>
+                        <input type="password" name="password" class="auth-input" placeholder="例: coachtech1106">
+                        @error('password')
+                            <p class="auth-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="auth-button-wrap">
+                        <button type="submit" class="auth-button">ログイン</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div>
-            <input type="password" name="password" placeholder="パスワード">
-            @error('password')
-                <p style="color:red;">{{ $message }}</p>
-            @enderror
-        </div>
-
-        <button type="submit">ログイン</button>
-    </form>
+    </div>
 </body>
 </html>
