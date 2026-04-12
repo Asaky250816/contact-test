@@ -49,6 +49,24 @@ php artisan db:seed
 
 ---
 
+## 使用技術（実行環境）
+
+- お問い合わせ入力機能
+- バリデーション
+- 確認画面
+- サンクスページ
+- 会員登録機能
+- ログイン機能
+- ログアウト機能
+- 管理画面一覧表示
+- 検索機能
+- ページネーション
+- 詳細モーダル表示
+- 削除機能
+- CSVエクスポート機能
+
+---
+
 ## URL
 
 - 開発環境：http://localhost/
@@ -58,42 +76,44 @@ php artisan db:seed
 
 ## ER図
 
-以下はテーブル仕様書ベースのER図です。
-※ users テーブルは認証用の独立テーブルです。
-※ contacts テーブルは categories テーブルに従属しています。
+- 以下はテーブル仕様書ベースのER図です。
+- ※ users テーブルは認証用の独立テーブルです。
+- ※ contacts テーブルは categories テーブルに従属しています。
 
-```mermaid
 erDiagram
-	categories ||--o{ contacts : "has"
+categories ||--o{ contacts : "has"
 
-	contacts {
-		bigint id PK
-		bigint category_id FK
-		varchar first_name
-		varchar last_name
-		tinyint gender
-		varchar email
-		varchar tel
-		varchar address
-		varchar building
-		text detail
-		timestamp created_at
-		timestamp updated_at
-	}
+    contacts {
+        bigint id PK
+        bigint category_id FK
+        varchar first_name
+        varchar last_name
+        tinyint gender
+        varchar email
+        varchar tel
+        varchar address
+        varchar building
+        text detail
+        timestamp created_at
+        timestamp updated_at
+    }
 
-	categories {
-		bigint id PK
-		varchar content
-		timestamp created_at
-		timestamp updated_at
-	}
+    categories {
+        bigint id PK
+        varchar content
+        timestamp created_at
+        timestamp updated_at
+    }
 
-	users {
-		bigint id PK
-		varchar name
-		varchar email
-		varchar password
-		timestamp created_at
-		timestamp updated_at
-	}
+    users {
+        bigint id PK
+        varchar name
+        varchar email
+        varchar password
+        timestamp created_at
+        timestamp updated_at
+    }
+
+```
+
 ```
