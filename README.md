@@ -7,7 +7,7 @@
 
 ## 環境構築
 
-### 1. リポジトリのクローン・コンテナ起動
+### 1. Dockerビルド
 
 ```bash
 git clone https://github.com/Asaky250816/contact-test.git
@@ -15,7 +15,7 @@ cd contact-test
 docker compose up -d --build
 ```
 
-### 2. パッケージインストール・環境設定
+### 2. Laravel環境構築
 
 ```bash
 docker compose exec php bash
@@ -23,7 +23,7 @@ composer install
 cp .env.example .env
 ```
 
-`.env` の以下の項目を設定してください：
+### 3. .env ファイルを以下のように編集してください：
 
 ```env
 DB_CONNECTION=mysql
@@ -34,7 +34,7 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
-### 3. アプリケーションの初期化
+### 4. 設定後、以下のコマンドを実行してください。
 
 ```bash
 php artisan key:generate
