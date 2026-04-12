@@ -22,7 +22,7 @@ docker compose exec php bash
 composer install
 cp .env.example .env
 
-# .envを編集
+# .env ファイルを以下のように編集してください。
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -59,6 +59,8 @@ php artisan db:seed
 ## ER図
 
 以下はテーブル仕様書ベースのER図です。
+※ users テーブルは認証用の独立テーブルです。
+※ contacts テーブルは categories テーブルに従属しています。
 
 ```mermaid
 erDiagram
