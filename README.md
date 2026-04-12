@@ -81,8 +81,8 @@ php artisan db:seed
 
 ## ER図
 
-> ※ `users` テーブルは認証用の独立テーブルです。
-> ※ `contacts` テーブルは `categories` テーブルに従属しています。
+※ `users` テーブルは認証用の独立テーブルです。
+※ `contacts` テーブルは `categories` テーブルに従属しています。
 
 ```mermaid
 erDiagram
