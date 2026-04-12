@@ -1,7 +1,46 @@
 # お問い合わせフォームアプリ
 
-お問い合わせ内容の入力、確認、送信ができるフォームアプリです。  
+お問い合わせ内容の入力、確認、送信ができるフォームアプリです。
 管理画面では、登録されたお問い合わせの一覧表示、検索、詳細表示、削除、CSVエクスポートができます。
+
+---
+
+## 環境構築
+
+### 1. リポジトリのクローン・コンテナ起動
+
+```bash
+git clone https://github.com/Asaky250816/contact-test.git
+cd contact-test
+docker compose up -d --build
+```
+
+### 2. パッケージインストール・環境設定
+
+```bash
+docker compose exec php bash
+composer install
+cp .env.example .env
+```
+
+`.env` の以下の項目を設定してください：
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
+```
+
+### 3. アプリケーションの初期化
+
+```bash
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+```
 
 ---
 
@@ -81,41 +120,3 @@ erDiagram
     }
 ```
 
----
-
-## 環境構築
-
-### 1. リポジトリのクローン・コンテナ起動
-
-```bash
-git clone https://github.com/Asaky250816/contact-test.git
-cd contact-test
-docker compose up -d --build
-```
-
-### 2. パッケージインストール・環境設定
-
-```bash
-docker compose exec php bash
-composer install
-cp .env.example .env
-```
-
-`.env` の以下の項目を設定してください：
-
-```env
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravel_db
-DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass
-```
-
-### 3. アプリケーションの初期化
-
-```bash
-php artisan key:generate
-php artisan migrate
-php artisan db:seed
-```
