@@ -12,13 +12,20 @@ class AdminController extends Controller
     {
         $query = Contact::with('category');
 
-        if ($request->keyword) {
-            $query->where(function ($q) use ($request) {
-                $q->where('first_name', 'like', '%' . $request->keyword . '%')
-                ->orWhere('last_name', 'like', '%' . $request->keyword . '%')
-                ->orWhere('email', 'like', '%' . $request->keyword . '%');
-            });
-        }
+if ($request->keyword) {
+    $keyword = $request->keyword;
+    $keywordNoSpace = str_replace([' ', '　'], '', $keyword);
+
+    $query->where(function ($q) use ($keyword, $keywordNoSpace) {
+        $q->where('first_name', 'like', '%' . $keyword . '%')
+            ->orWhere('last_name', 'like', '%' . $keyword . '%')
+            ->orWhere('email', 'like', '%' . $keyword . '%')
+            ->orWhereRaw("CONCAT(last_name, first_name) LIKE ?", ['%' . $keywordNoSpace . '%'])
+            ->orWhereRaw("CONCAT(first_name, last_name) LIKE ?", ['%' . $keywordNoSpace . '%'])
+            ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $keyword . '%'])
+            ->orWhereRaw("CONCAT(last_name, '　', first_name) LIKE ?", ['%' . $keyword . '%']);
+    });
+}
 
         if ($request->gender) {
             $query->where('gender', $request->gender);

@@ -35,14 +35,14 @@
             >
 
             <select name="gender" class="admin-search__select">
-                <option value="">性別</option>
+                <option value="">全て</option>
                 <option value="1" {{ request('gender') == '1' ? 'selected' : '' }}>男性</option>
                 <option value="2" {{ request('gender') == '2' ? 'selected' : '' }}>女性</option>
                 <option value="3" {{ request('gender') == '3' ? 'selected' : '' }}>その他</option>
             </select>
 
             <select name="category_id" class="admin-search__select">
-                <option value="">カテゴリ</option>
+                <option value="">お問い合わせの種類</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
                         {{ $category->content }}
